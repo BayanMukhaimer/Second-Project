@@ -5,14 +5,14 @@ const Playlist = require("../models/Playlist")
 
 
 router.get("/new",(req,res)=>{
-    res.render("playlist/new.ejs")
+    res.render("playlists/new.ejs")
 })
 
 
 router.post("/",async(req,res)=> {
     try{
         const createdPlaylist = await Playlist.create(req.body)
-        res.redirect("/playlist/new")
+        res.redirect("/playlists/new")
     }
     catch(error){
         console.log(error)

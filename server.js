@@ -44,13 +44,13 @@ conntectToDB()
 
 
 
-
+app.use("/playlists",playlistRoutes)
 
 app.use("/auth",authRoutes)
 app.use(isSignedIn) //all your protected routes go below this middleware
 // Routes go here
 
-app.use("/playlist",playlistRoutes)
+
 
 
 
