@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Song</h1>
+
+<form action="/songs/<%= song._id %>?_method=PUT" method="POST">
+  <label>Title: <input type="text" name="title" value="<%= song.title %>" required /></label><br>
+  <label>Artist: <input type="text" name="artist" value="<%= song.artist %>" /></label><br>
+  <label>Genre: <input type="text" name="genre" value="<%= song.genre %>" /></label><br>
+  <label>Duration: <input type="text" name="duration" value="<%= song.duration %>" /></label><br>
+  <button type="submit">Update Song</button>
+</form>
+
+<a href="/songs">Cancel</a>
+</body>
+</html>
+
