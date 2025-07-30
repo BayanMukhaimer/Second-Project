@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= foundPlaylist.name %></h1>
+
+<h3>Songs:</h3>
+<ul>
+  <% foundPlaylist.songIds.forEach(song => { %>
+    <li><%= song.title %> by <%= song.artist %></li>
+  <% }) %>
+</ul>
+
+<a href="/playlists/<%= foundPlaylist._id %>/edit">Edit Playlist</a>
+
+<form action="/playlists/<%= foundPlaylist._id %>?_method=DELETE" method="POST" style="margin-top:1rem;">
+  <button type="submit">Delete Playlist</button>
+</form>
+
+<a href="/playlists">← Back to all playlists</a>
+</body>
+</html>

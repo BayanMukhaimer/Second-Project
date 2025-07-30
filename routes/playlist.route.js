@@ -36,4 +36,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+
+router.get("/:playlistId", async (req, res) => {
+  try {
+    const foundPlaylist = await Playlist.findById(req.params.playlistId).populate("songIds");
+    res.render("playlists/playlist-details.ejs", { foundPlaylist });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
+
+
+
 module.exports = router
