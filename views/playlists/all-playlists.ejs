@@ -9,7 +9,7 @@
     <h1>All Playlists</h1>
 
 <ul>
-  <% allPlaylists.forEach(playlist => { %>
+  <% allPlaylists.forEach((playlist) => { %>
     <li>
       <a href="/playlists/<%= playlist._id %>">
         <%= playlist.name %>

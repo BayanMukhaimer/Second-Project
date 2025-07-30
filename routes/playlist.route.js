@@ -27,6 +27,13 @@ router.post("/",async(req,res)=> {
 })
 
 
-
+router.get("/", async (req, res) => {
+  try {
+    const allPlaylists = await Playlist.find().populate("songIds");
+    res.render("playlists/all-playlists.ejs", { allPlaylists });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router
