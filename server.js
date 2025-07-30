@@ -11,7 +11,7 @@ const passUserToView = require('./middleware/passUserToView')
 const isSignedIn = require("./middleware/isSignedIn")
 
 const playlistRoutes = require("./routes/playlist.route")
-
+const songRoutes = require("./routes/song.routes")
 
 
 
@@ -45,6 +45,7 @@ conntectToDB()
 
 
 app.use("/playlists",playlistRoutes)
+app.use("/songs", songRoutes)
 
 app.use("/auth",authRoutes)
 app.use(isSignedIn) //all your protected routes go below this middleware

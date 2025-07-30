@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add a New Song</h1>
+
+    <form action="/songs" method="POST">
+        <label>Title: <input type="text" name="title" required /></label><br>
+        <label>Artist: <input type="text" name="artist" /></label><br>
+        <label>Genre: <input type="text" name="genre" /></label><br>
+        <label>Duration: <input type="text" name="duration" placeholder="e.g., 3:45" /></label><br>
+        <button type="submit">Add Song</button>
+    </form>
+</body>
+</html>
