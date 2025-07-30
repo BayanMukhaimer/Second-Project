@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= foundSong.title %></h1>
+    <p>Artist: <%= foundSong.artist %></p>
+    <p>Genre: <%= foundSong.genre %></p>
+    <p>Duration: <%= foundSong.duration %></p>
+
+    <form action="/songs/<%= foundSong._id %>/edit">
+    <button type="submit">Edit</button>
+    </form>
+
+    <br>
+    <form action="/songs/<%= foundSong._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+</form>
+<br>
+<a href="/songs">Back to All Songs</a>
+</body>
+</html>
