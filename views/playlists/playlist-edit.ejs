@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Playlist</h1>
+
+<form action="/playlists/<%= foundPlaylist._id %>?_method=PUT" method="POST">
+  <label for="name">Playlist Name:</label>
+  <input type="text" name="name" value="<%= foundPlaylist.name %>" required />
+
+  <h3>Select Songs:</h3>
+  <% allSongs.forEach(song => { %>
+    <div>
+      <label>
+        <input 
+          type="checkbox" 
+          name="songIds" 
+          value="<%= song._id %>" 
+          <%= foundPlaylist.songIds.includes(song._id.toString()) ? 'checked' : '' %>
+        />
+        <%= song.title %> by <%= song.artist %>
+      </label>
+    </div>
+  <% }) %>
+
+  <button type="submit">Update Playlist</button>
+</form>
+
+<a href="/playlists/<%= foundPlaylist._id %>">Cancel</a>
+</body>
+</html>
