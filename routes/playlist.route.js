@@ -5,7 +5,7 @@ const Playlist = require("../models/Playlist")
 
 
 router.get("/new",(req,res)=>{
-    res.render("playlists/new.ejs")
+    res.render("playlist/new.ejs")
 })
 
 
@@ -17,7 +17,9 @@ router.post("/",async(req,res)=> {
     catch(error){
         console.log(error)
     }
-}
-)
+})
+
+
+
 
 module.exports = router

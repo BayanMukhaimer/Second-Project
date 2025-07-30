@@ -10,6 +10,7 @@ const session = require("express-session")
 const passUserToView = require('./middleware/passUserToView')
 const isSignedIn = require("./middleware/isSignedIn")
 
+const playlistRoutes = require("./routes/playlist.route")
 
 
 
@@ -49,7 +50,7 @@ app.use("/auth",authRoutes)
 app.use(isSignedIn) //all your protected routes go below this middleware
 // Routes go here
 
-
+app.use("/playlist",playlistRoutes)
 
 
 

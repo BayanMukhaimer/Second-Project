@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Playlist</title>
 </head>
 <body>
-    <h1>New playlist</h1>
+  <h1>Create New Playlist</h1>
 
-    <form action="" method="">
+  <form action="/playlists" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-
-        <label for="song">Songs: </label>
-        <select multiple name="song" id="song">
-        <% allSongs.forEach((oneSong)=>{ %>
+    <label for="songIds">Songs:</label>
+    <select multiple name="songIds" id="songIds">
+      <% allSongs.forEach((oneSong) => { %>
         <option value="<%= oneSong._id %>"><%= oneSong.name %></option>
-        <% }) %>
-        </select>
-        <button>New Playlist</button>
-    </form>
+      <% }) %>
+    </select>
+
+    <button type="submit">Create Playlist</button>
+  </form>
 </body>
 </html>
