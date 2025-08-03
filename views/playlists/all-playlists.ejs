@@ -11,19 +11,19 @@
     <%- include('../partials/navbar') %>
     <h1 class="playlist-title">All Playlists</h1>
 
-<section class="playlist-section">
-  <div class="playlist-grid">
-    <% allPlaylists.forEach((playlist) => { %>
-      <div class="playlist-card">
-        <a href="/playlists/<%= playlist._id %>">
-          <h3><%= playlist.name %></h3>
-        </a>
-      </div>
-    <% }) %>
-  </div>
-</section>
+<div class="playlist-container">
+  <% allPlaylists.forEach((playlist) => { %>
+    <div class="playlist-card">
+      <a href="/playlists/<%= playlist._id %>">
+        <%= playlist.name %>
+      </a>
+    </div>
+  <% }) %>
+</div>
 
-<a href="/playlists/new" class="create-btn"> Create New Playlist</a>
+<a class="create-new" href="/playlists/new">Create New Playlist</a>
+
+
 
 </body>
 </html>

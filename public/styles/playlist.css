@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/myFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #1e1e1e;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 120px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #f0f0f0;
+  font-family: 'MyFont', sans-serif;
+}
+
+.playlist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 960px;        
+  width: 100%;
+  margin: 0 auto;          
+  justify-items: center;   
+}
+
+.playlist-card {
+  background: #2a2a2a;
+  border-radius: 16px;
+  padding: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.playlist-card:hover {
+  background: #333;
+  transform: translateY(-4px);
+}
+
+.playlist-card a {
+  text-decoration: none;
+  color: #00bfff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.playlist-card a:hover {
+  color: #1ec9ff;
+}
+
+.create-new {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #ed6044;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.create-new:hover {
+  background-color: #ff8364;
+}
+
+
+.navbar {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #00bfff;
+}
+
+.navbar img {
+    width: 80px;
+    height: 80px;
+}
+
+.username {
+  margin-right: 1rem;
+  font-weight: normal;
+  color: #ccc;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
