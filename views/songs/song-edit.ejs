@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Song</title>
+  <link rel="stylesheet" href="/styles/editSong.css" />
 </head>
 <body>
-    <%- include('../partials/navbar') %>
+  <%- include('../partials/navbar') %>
+
+  <div class="edit-container">
     <h1>Edit Song</h1>
 
-<form action="/songs/<%= song._id %>?_method=PUT" method="POST">
-  <label>Title: <input type="text" name="title" value="<%= song.title %>" required /></label><br>
-  <label>Artist: <input type="text" name="artist" value="<%= song.artist %>" /></label><br>
-  <label>Genre: <input type="text" name="genre" value="<%= song.genre %>" /></label><br>
-  <label>Duration: <input type="text" name="duration" value="<%= song.duration %>" /></label><br>
-  <button type="submit">Update Song</button>
-</form>
+    <form action="/songs/<%= song._id %>?_method=PUT" method="POST">
+      <label>
+        Title:
+        <input type="text" name="title" value="<%= song.title %>" required />
+      </label>
 
-<a href="/songs">Cancel</a>
+      <label>
+        Artist:
+        <input type="text" name="artist" value="<%= song.artist %>" />
+      </label>
+
+      <label>
+        Genre:
+        <input type="text" name="genre" value="<%= song.genre %>" />
+      </label>
+
+      <label>
+        Duration:
+        <input type="text" name="duration" value="<%= song.duration %>" />
+      </label>
+
+      <div class="buttons">
+        <button type="submit" class="update-btn">Update Song</button>
+        <form action="/songs" method="get" style="display: inline;">
+          <button type="submit" class="cancel-btn">Cancel</button>
+        </form>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
+
 

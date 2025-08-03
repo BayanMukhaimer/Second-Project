@@ -58,6 +58,22 @@ h1 {
   color: #1ec9ff;
 }
 
+.add-song {
+  background-color: #ff8364;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-song:hover {
+  background-color: #ff6842;
+}
+
 .create-new {
   display: inline-block;
   margin-top: 40px;

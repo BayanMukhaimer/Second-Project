@@ -6,8 +6,12 @@
 
   <div class="navbar-right">
     <% if (user) { %>
-      <span class="username"><%= user.username %></span>
-      <a href="/auth/logout">Logout</a>
+    <a href="/songs">Songs</a>
+    <a href="/playlists">Playlists</a>
+    <a href="/auth/logout">Logout</a>
+    <span class="username"><%= user.username %></span>
+      
+    
     <% } else { %>
       <a href="/auth/login">Login</a>
       <a href="/auth/sign-up">Sign Up</a>
