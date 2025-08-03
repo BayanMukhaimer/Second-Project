@@ -4,15 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>New Playlist</title>
+  <link rel="stylesheet" href="/styles/new-playlist.css" />
 </head>
 <body>
+    <%- include('../partials/navbar') %>
   <h1>Create New Playlist</h1>
 
   <form action="/playlists" method="POST">
-    <label for="name">Name:</label>
+    <label for="name">Playlist Name:</label>
     <input type="text" id="name" name="name" required />
 
-    <label for="songIds">Songs:</label>
+    <label for="songIds">Select Songs:</label>
     <select multiple name="songIds" id="songIds">
       <% allSongs.forEach((oneSong) => { %>
         bayan
