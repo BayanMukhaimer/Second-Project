@@ -38,30 +38,66 @@
 .overlay-content h1 {
     color: #ed6044;
     font-family: 'MyFont', sans-serif;
-    font-size: 3rem;
+    font-size: 5rem;
     margin-bottom: 0.5rem;
 }
 
 .overlay-content h2 {
     color: #fffefd;
-  font-size: 1.25rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-nav{
-    position: fixed; 
-  color: #fff;
+.navbar {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #00bfff;
+}
+
+.navbar img {
+    width: 80px;
+    height: 80px;
+}
+
+.username {
+  margin-right: 1rem;
+  font-weight: normal;
+  color: #ccc;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 
 .cta-button {
   display: inline-block;
-  background-color: #00bfff;
-  color: #fff;
+  background-color: #ffe2a9;
+  color: #6c5c5c;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
@@ -74,3 +110,7 @@ nav{
 .cta-button:hover {
   background-color: #009ad6;
 }
+
+
+
+

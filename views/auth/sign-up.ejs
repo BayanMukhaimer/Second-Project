@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/auth.css">
 </head>
 <body>
         <%- include('../partials/navbar') %>
-
-    <h1>Sign Up</h1>
+    <div class="auth-container">
+  <img src="/pictures/logo.png" alt="Mixtape Logo" class="auth-logo" />
+  
+    <h1>Sign up to start listening</h1>
     <form action="/auth/sign-up" method="post">
+        
         <label for="username">username:</label>
         <input type="text" name="username" id="username">
 
@@ -21,5 +25,7 @@
     <% if (error) { %>
   <p style="color:red" class="error"><%= error %></p>
 <% } %>
+
+    </div>
 </body>
 </html>

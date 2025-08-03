@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/playlist.css">
     
 </head>
 <body>
     <%- include('../partials/navbar') %>
-    <h1>All Playlists</h1>
+    <h1 class="playlist-title">All Playlists</h1>
 
-<ul>
-  <% allPlaylists.forEach((playlist) => { %>
-    <li>
-      <a href="/playlists/<%= playlist._id %>">
-        <%= playlist.name %>
-      </a>
-    </li>
-  <% }) %>
-</ul>
+<section class="playlist-section">
+  <div class="playlist-grid">
+    <% allPlaylists.forEach((playlist) => { %>
+      <div class="playlist-card">
+        <a href="/playlists/<%= playlist._id %>">
+          <h3><%= playlist.name %></h3>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+</section>
 
-<a href="/playlists/new">Create New Playlist</a>
+<a href="/playlists/new" class="create-btn"> Create New Playlist</a>
+
 </body>
 </html>
