@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/playlist-details.css">
 </head>
 <body>
+  <%- include('../partials/navbar') %>
+
+  <div class="container">
     <h1><%= foundPlaylist.name %></h1>
 
-<h3>Songs:</h3>
-<ul>
-  <% foundPlaylist.songIds.forEach(song => { %>
-    <li><%= song.title %> by <%= song.artist %></li>
-  <% }) %>
-</ul>
+    <h3>Songs:</h3>
+    <ul>
+      <% foundPlaylist.songIds.forEach(song => { %>
+        <li><%= song.title %> by <%= song.artist %></li>
+      <% }) %>
+    </ul>
 
-<a href="/playlists/<%= foundPlaylist._id %>/edit">Edit Playlist</a>
+    <div class="playlist-buttons">
+  <a href="/playlists/<%= foundPlaylist._id %>/edit" class="btn edit-btn">Edit Playlist</a>
 
-<form action="/playlists/<%= foundPlaylist._id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete Playlist</button>
-</form>
+  <form action="/playlists/<%= foundPlaylist._id %>?_method=DELETE" method="POST" style="display:inline;">
+    <button type="submit" class="btn delete-btn">Delete Playlist</button>
+  </form>
 
-<a href="/playlists">← Back to all playlists</a>
+  <a href="/playlists" class="btn back-btn">Back to all playlists</a>
+</div>
+ </div>
 </body>
 </html>

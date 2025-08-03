@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/edit-playlist.css">
 </head>
 <body>
+    <%- include('../partials/navbar') %>
     <h1>Edit Playlist</h1>
 
 <form action="/playlists/<%= foundPlaylist._id %>?_method=PUT" method="POST">
@@ -14,7 +16,7 @@
 
   <h3>Select Songs:</h3>
   <% allSongs.forEach(song => { %>
-    <div>
+    <div class="song-checkbox">
       <label>
         <input 
           type="checkbox" 
@@ -30,6 +32,9 @@
   <button type="submit">Update Playlist</button>
 </form>
 
-<a href="/playlists/<%= foundPlaylist._id %>">Cancel</a>
+<form action="/playlists/<%= foundPlaylist._id %>" method="GET" style="margin-top: 20px;">
+  <button type="submit" class="cancel-btn">← Cancel</button>
+</form>
+
 </body>
 </html>

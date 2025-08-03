@@ -1,0 +1,169 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #00bfff;
+}
+
+.navbar img {
+  width: 80px;
+  height: 80px;
+}
+
+.username {
+  margin-right: 1rem;
+  font-weight: normal;
+  color: #ccc;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 120px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 140px 20px 40px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #f0f0f0;
+  margin-bottom: 16px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  font-size: 20px;
+  color: #cccccc;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 500px;
+}
+
+ul li {
+  background-color: #2a2a2a;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+ul li:hover {
+  background-color: #333;
+}
+
+.container {
+  padding-top: 160px;
+}
+
+
+a, button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 20px;
+  margin: 10px 8px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+button {
+  background-color: #ed6044;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #ff8364;
+}
+
+
+
+.playlist-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+.edit-btn {
+  background-color: #556f77;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #688b96;
+}
+
+.delete-btn {
+  background-color: #ed6044;
+  color: white;
+  border: none;
+}
+
+.delete-btn:hover {
+  background-color: #ff8364;
+}
+
+.back-btn {
+  background-color: #444;
+  color: #fff;
+}
+
+.back-btn:hover {
+  background-color: #555;
+}

@@ -1,0 +1,147 @@
+    .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #00bfff;
+}
+
+.navbar img {
+  width: 80px;
+  height: 80px;
+}
+
+.username {
+  margin-right: 1rem;
+  font-weight: normal;
+  color: #ccc;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+    
+    body {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 120px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #f0f0f0;
+      text-align: center;
+    }
+
+    form {
+      background-color: #2a2a2a;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ddd;
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      background: #444;
+      color: #fff;
+      width: 100%;
+    }
+
+    h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .song-checkbox {
+      background-color: #3a3a3a;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .song-checkbox:hover {
+      background-color: #444;
+    }
+
+    .song-checkbox input {
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #ed6044;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #ff8364;
+    }
+
+.cancel-btn {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #555;
+}
