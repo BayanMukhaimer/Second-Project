@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/playlist.css">
+    <link rel="stylesheet" href="/styles/all.css">
     
 </head>
 <body>
     <%- include('../partials/navbar') %>
     <h1 class="playlist-title">All Playlists</h1>
 
-<div class="playlist-container">
+<div class="All-container">
   <% allPlaylists.forEach((playlist) => { %>
-    <div class="playlist-card">
+    <div class="All-card">
       <a href="/playlists/<%= playlist._id %>">
         <%= playlist.name %>
       </a>

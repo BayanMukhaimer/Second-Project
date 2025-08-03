@@ -23,7 +23,7 @@ h1 {
   font-family: 'MyFont', sans-serif;
 }
 
-.playlist-container {
+.All-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
@@ -33,7 +33,7 @@ h1 {
   justify-items: center;   
 }
 
-.playlist-card {
+.All-card {
   background: #2a2a2a;
   border-radius: 16px;
   padding: 20px;

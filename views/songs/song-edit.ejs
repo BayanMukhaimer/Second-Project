@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('../partials/navbar') %>
     <h1>Edit Song</h1>
 
 <form action="/songs/<%= song._id %>?_method=PUT" method="POST">

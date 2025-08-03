@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/all.css">
 </head>
 <body>
+    <%- include('../partials/navbar') %>
     <h1>All Songs</h1>
 
-<ul>
+<div class="All-container">
   <% allSongs.forEach(song => { %>
-    <li>
+    <div class="All-card">
       <a href="/songs/<%= song._id %>">
         <%= song.title %> - <%= song.artist %>
       </a>
-    </li>
+    </div>
   <% }) %>
-</ul>
+</div>
 
-<a href="/songs/new">Add New Song</a>
+
+<form action="/songs/new" method="get" style="text-align: center; margin-top: 2rem;">
+  <button type="submit" class="add-song">Add New Song</button>
+</form>
 </body>
 </html>

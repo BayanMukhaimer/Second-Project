@@ -17,16 +17,15 @@ router.get("/new", async (req, res) => {
 });
 
 
-router.post("/",async(req,res)=> {
-    try{
-        const createdPlaylist = await Playlist.create(req.body)
-        console.log(allSongs)
-        res.redirect("/playlists/new")
-    }
-    catch(error){
-        console.log(error)
-    }
-})
+router.post("/", async (req, res) => {
+  try {
+    const createdPlaylist = await Playlist.create(req.body);
+    console.log(createdPlaylist); 
+    res.redirect("/playlists");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 
 router.get("/", async (req, res) => {
