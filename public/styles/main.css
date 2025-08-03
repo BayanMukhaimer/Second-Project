@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/myFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    background-image: url(../pictures/RECORED.png);
+}
+
+h1{
+color: #171717;
+font-family: 'MyFont', sans-serif;
+}
+
+
+
+h3{
+    color: #ffe2a9;
+
+}
+
+nav{
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

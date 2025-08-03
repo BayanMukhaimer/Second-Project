@@ -8,6 +8,7 @@ const Song = require("../models/Song")
 router.get("/new", async (req, res) => {
     try {
         const allSongs = await Song.find();
+        console.log(allSongs)
         res.render("playlists/new.ejs", { allSongs });
     } catch (error) {
         console.log(error);
