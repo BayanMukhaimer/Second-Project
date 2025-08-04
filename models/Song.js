@@ -8,7 +8,9 @@ const songSchema = new mongoose.Schema({
   artist: String,
   album: String,
   genre: String,
-  duration: String
+  duration: String,
+  audioPath: String,
+  imagePath: String,
 }, { timestamps: true });
 
 module.exports = mongoose.model('Song', songSchema);

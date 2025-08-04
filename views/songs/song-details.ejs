@@ -10,25 +10,36 @@
   <%- include('../partials/navbar') %>
 
   <div class="song-container">
-    <h1><%= foundSong.title %></h1>
-    <p><strong>Artist:</strong> <%= foundSong.artist %></p>
-    <p><strong>Genre:</strong> <%= foundSong.genre %></p>
-    <p><strong>Duration:</strong> <%= foundSong.duration %></p>
+    <div class="album-section">
+      <img class="album-art" src="<%= foundSong.imagePath || '/images/default-cover.png' %>" alt="Album Art">
+    </div>
+    <div class="info-section">
+      <h1><%= foundSong.title %></h1>
+      <p><strong>Artist:</strong> <%= foundSong.artist %></p>
+      <p><strong>Genre:</strong> <%= foundSong.genre %></p>
+      <p><strong>Duration:</strong> <%= foundSong.duration %></p>
 
-    <div class="actions">
-      <form action="/songs/<%= foundSong._id %>/edit" method="GET">
-        <button class="edit-btn" type="submit">Edit</button>
-      </form>
+      <% if (foundSong.audioPath) { %>
+        <audio controls>
+          <source src="<%= foundSong.audioPath %>" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      <% } %>
 
-      <form action="/songs/<%= foundSong._id %>?_method=DELETE" method="POST">
-        <button class="delete-btn" type="submit">Delete</button>
+      <div class="actions">
+        <form action="/songs/<%= foundSong._id %>/edit" method="GET">
+          <button class="edit-btn" type="submit">Edit</button>
+        </form>
+
+        <form action="/songs/<%= foundSong._id %>?_method=DELETE" method="POST">
+          <button class="delete-btn" type="submit">Delete</button>
+        </form>
+      </div>
+
+      <form action="/songs" method="get">
+        <button type="submit" class="back-btn">Back to All Songs</button>
       </form>
     </div>
-
-    <form action="/songs" method="get">
-  <button type="submit" class="back-btn"> Back to All Songs</button>
-</form>
-
   </div>
 </body>
 </html>

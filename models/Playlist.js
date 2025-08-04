@@ -13,7 +13,8 @@ const playlistSchema = new mongoose.Schema({
   songIds: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Song'
-  }]
+  }],
+  coverImagePath: String,
 }, { timestamps: true });
 
 module.exports = mongoose.model('Playlist', playlistSchema);

@@ -3,6 +3,22 @@ const router = express.Router();
 const Playlist = require("../models/Playlist")
 const Song = require("../models/Song")
 
+const multer = require("multer");
+const path = require("path");
+
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/uploads");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + path.extname(file.originalname);
+    cb(null, file.fieldname + "-" + uniqueSuffix);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 
 router.get("/new", async (req, res) => {
@@ -17,16 +33,25 @@ router.get("/new", async (req, res) => {
 });
 
 
-router.post("/", async (req, res) => {
+router.post("/", upload.single("coverImage"), async (req, res) => {
   try {
-    const createdPlaylist = await Playlist.create(req.body);
-    console.log(createdPlaylist); 
+    const playlistData = req.body;
+
+    if (req.file) {
+      playlistData.coverImagePath = `/uploads/${req.file.filename}`;
+    }
+
+    if (playlistData.songIds && !Array.isArray(playlistData.songIds)) {
+      playlistData.songIds = [playlistData.songIds];
+    }
+
+    const createdPlaylist = await Playlist.create(playlistData);
     res.redirect("/playlists");
   } catch (error) {
     console.log(error);
+    res.send("Error creating playlist.");
   }
 });
-
 
 router.get("/", async (req, res) => {
   try {

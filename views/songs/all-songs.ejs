@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/all.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Songs</title>
+  <link rel="stylesheet" href="/styles/all.css">
 </head>
 <body>
-    <%- include('../partials/navbar') %>
-    <h1>All Songs</h1>
+  <%- include('../partials/navbar') %>
 
-<div class="All-container">
+  <h1>All Songs</h1>
+
+  <div class="All-container">
   <% allSongs.forEach(song => { %>
-    <div class="All-card">
-      <a href="/songs/<%= song._id %>">
-        <%= song.title %> - <%= song.artist %>
-      </a>
-    </div>
+    <a href="/songs/<%= song._id %>" class="song-link">
+      <div class="All-card">
+        <div class="play-overlay">▶</div>
+        <img class="album-art" src="<%= song.imagePath || '/images/default-cover.png' %>" alt="Album Art">
+        <h2><%= song.title %></h2>
+        <p><%= song.artist %></p>
+        <% if (song.audioPath) { %>
+          <audio controls class="audio-preview">
+            <source src="<%= song.audioPath %>" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        <% } %>
+      </div>
+    </a>
   <% }) %>
 </div>
 
-
-<form action="/songs/new" method="get" style="text-align: center; margin-top: 2rem;">
-  <button type="submit" class="add-song">Add New Song</button>
-</form>
+  <form action="/songs/new" method="get" style="text-align: center;">
+    <button type="submit" class="add-song">Add New Song</button>
+  </form>
 </body>
 </html>

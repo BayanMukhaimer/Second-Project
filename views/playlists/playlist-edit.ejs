@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/edit-playlist.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Playlist</title>
+  <link rel="stylesheet" href="/styles/edit-playlist.css" />
 </head>
 <body>
-    <%- include('../partials/navbar') %>
+  <%- include('../partials/navbar') %>
+
+  <div class="edit-container">
     <h1>Edit Playlist</h1>
 
-<form action="/playlists/<%= foundPlaylist._id %>?_method=PUT" method="POST">
-  <label for="name">Playlist Name:</label>
-  <input type="text" name="name" value="<%= foundPlaylist.name %>" required />
+    <form action="/playlists/<%= foundPlaylist._id %>?_method=PUT" method="POST">
+      <div class="form-group">
+        <label for="name">Playlist Name:</label>
+        <input type="text" id="name" name="name" value="<%= foundPlaylist.name %>" required />
+      </div>
 
-  <h3>Select Songs:</h3>
-  <% allSongs.forEach(song => { %>
-    <div class="song-checkbox">
-      <label>
-        <input 
-          type="checkbox" 
-          name="songIds" 
-          value="<%= song._id %>" 
-          <%= foundPlaylist.songIds.includes(song._id.toString()) ? 'checked' : '' %>
-        />
-        <%= song.title %> by <%= song.artist %>
-      </label>
-    </div>
-  <% }) %>
+      <h3>Select Songs:</h3>
+      <div class="song-list">
+        <% allSongs.forEach(song => { %>
+          <label class="song-checkbox">
+            <input 
+              type="checkbox" 
+              name="songIds" 
+              value="<%= song._id %>" 
+              <%= foundPlaylist.songIds.includes(song._id.toString()) ? 'checked' : '' %>
+            />
+            <span><%= song.title %> — <%= song.artist %></span>
+          </label>
+        <% }) %>
+      </div>
 
-  <button type="submit">Update Playlist</button>
-</form>
-
-<form action="/playlists/<%= foundPlaylist._id %>" method="GET" style="margin-top: 20px;">
-  <button type="submit" class="cancel-btn">← Cancel</button>
-</form>
-
+      <div class="form-buttons">
+        <button type="submit" class="update-btn">Update Playlist</button>
+        <a href="/playlists/<%= foundPlaylist._id %>" class="cancel-btn"> Cancel</a>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

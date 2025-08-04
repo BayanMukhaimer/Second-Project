@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/all.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Playlists</title>
+  <link rel="stylesheet" href="/styles/allP.css" />
 </head>
 <body>
-    <%- include('../partials/navbar') %>
-    <h1 class="playlist-title">All Playlists</h1>
+  <%- include('../partials/navbar') %>
 
-<div class="All-container">
-  <% allPlaylists.forEach((playlist) => { %>
-    <div class="All-card">
-      <a href="/playlists/<%= playlist._id %>">
-        <%= playlist.name %>
+  <h1 class="playlist-title">Browse Your Playlists</h1>
+
+  <div class="All-container">
+    <% allPlaylists.forEach((playlist) => { %>
+      <a href="/playlists/<%= playlist._id %>" class="playlist-card-link">
+        <div class="All-card">
+
+          <% if (playlist.coverImagePath) { %>
+            <img class="album-art" src="<%= playlist.coverImagePath %>" alt="Playlist Cover">
+          <% } else if (playlist.songIds && playlist.songIds.length > 0 && playlist.songIds[0].coverArtPath) { %>
+            <img class="album-art" src="<%= playlist.songIds[0].coverArtPath %>" alt="Song Cover">
+          <% } else { %>
+            <img class="album-art" src="/images/default-cover.png" alt="Default Cover">
+          <% } %>
+
+          <h2><%= playlist.name %></h2>
+        </div>
       </a>
-    </div>
-  <% }) %>
-</div>
+    <% }) %>
+  </div>
 
-<a class="create-new" href="/playlists/new">Create New Playlist</a>
-
-
-
+  <a class="create-new" href="/playlists/new">Create New Playlist</a>
 </body>
 </html>

@@ -1,6 +1,32 @@
 const express = require("express");
 const router = express.Router();
 const Song = require("../models/Song")
+const multer = require('multer');
+const path = require('path');
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '../public/uploads'));
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const uniqueName = `${file.fieldname}-${Date.now()}-${Math.round(Math.random() * 1E9)}${ext}`;
+    cb(null, uniqueName);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  const allowedMimeTypes = ['audio/mpeg', 'audio/mp3', 'image/jpeg', 'image/png', 'image/webp'];
+  if (allowedMimeTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error('Invalid file type'), false);
+  }
+};
+
+const upload = multer({ storage, fileFilter });
+
 
 
 router.get("/new", (req, res) => {
@@ -8,10 +34,26 @@ router.get("/new", (req, res) => {
 });
 
 
-router.post("/", async (req, res) => {
+router.post('/', upload.fields([
+  { name: 'audio', maxCount: 1 },
+  { name: 'image', maxCount: 1 }
+]), async (req, res) => {
   try {
-    await Song.create(req.body);
-    res.redirect("/songs");
+    const { title, artist, genre, duration } = req.body;
+    const audioPath = req.files['audio'] ? `/uploads/${req.files['audio'][0].filename}` : null;
+    const imagePath = req.files['image'] ? `/uploads/${req.files['image'][0].filename}` : null;
+    
+const newSong = new Song({
+      title,
+      artist,
+      genre,
+      duration,
+      audioPath,
+      imagePath,
+    });
+
+    await newSong.save();
+    res.redirect('/songs');
   } catch (error) {
     console.log(error);
   }
@@ -67,5 +109,7 @@ router.delete("/:songId", async (req, res) => {
     console.log(error);
   }
 });
+
+
 
 module.exports = router;

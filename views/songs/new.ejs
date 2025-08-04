@@ -1,21 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/newSong.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Song</title>
+  <link rel="stylesheet" href="/styles/newSong.css" />
 </head>
 <body>
-    <%- include('../partials/navbar') %>
-    <h1>Add a New Song</h1>
+  <%- include('../partials/navbar') %>
 
-    <form action="/songs" method="POST">
-        <label>Title: <input type="text" name="title" required /></label><br>
-        <label>Artist: <input type="text" name="artist" /></label><br>
-        <label>Genre: <input type="text" name="genre" /></label><br>
-        <label>Duration: <input type="text" name="duration" placeholder="e.g., 3:45" /></label><br>
-        <button type="submit">Add Song</button>
-    </form>
+  <h1>Add a New Song</h1>
+
+  <form action="/songs" method="POST" enctype="multipart/form-data">
+    <label>
+      Title:
+      <input type="text" name="title" placeholder="Song title" required />
+    </label>
+
+    <label>
+      Artist:
+      <input type="text" name="artist" placeholder="Artist name" required />
+    </label>
+
+    <label>
+      Genre:
+      <input type="text" name="genre" placeholder="e.g., Pop, Rock" required />
+    </label>
+
+    <label>
+      Duration:
+      <input type="text" name="duration" placeholder="e.g., 3:45" required />
+    </label>
+
+    <label>
+      Upload Song:
+      <input type="file" name="audio" accept="audio/*" required />
+    </label>
+
+    <label>
+      Album Art (optional):
+      <input type="file" name="image" accept="image/*" id="imageInput" />
+    </label>
+
+    <div id="imagePreviewContainer" style="display:none;">
+      <p>Preview:</p>
+      <img id="imagePreview" src="#" alt="Album Art Preview" />
+    </div>
+
+    <button type="submit">Add Song</button>
+  </form>
+
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const previewContainer = document.getElementById('imagePreviewContainer');
+    const previewImage = document.getElementById('imagePreview');
+
+    imageInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        previewImage.src = URL.createObjectURL(file);
+        previewContainer.style.display = 'block';
+      } else {
+        previewImage.src = '';
+        previewContainer.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

@@ -6,133 +6,185 @@
 }
 
 body {
-  background-color: #1e1e1e;
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 120px 20px 40px;
+  background-color: #121212;
+  color: #FFFFFF;
+  font-family: 'MyFont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 h1 {
-  font-size: 36px;
-  margin-bottom: 40px;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   text-align: center;
-  color: #f0f0f0;
-  font-family: 'MyFont', sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
 }
 
 .All-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  max-width: 960px;        
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
   width: 100%;
-  margin: 0 auto;          
-  justify-items: center;   
+  max-width: 1200px;
 }
 
 .All-card {
-  background: #2a2a2a;
+  background-color: #1e1e1e;
   border-radius: 16px;
-  padding: 20px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.playlist-card:hover {
-  background: #333;
-  transform: translateY(-4px);
+.All-card:hover {
+  background-color: #2a2a2a;
+  transform: translateY(-6px);
 }
 
-.playlist-card a {
+.All-card a {
   text-decoration: none;
-  color: #00bfff;
-  font-size: 18px;
-  font-weight: bold;
+  color: #1DB954;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
-.playlist-card a:hover {
-  color: #1ec9ff;
+.All-card a:hover {
+  color: #1ed760;
+}
+
+.album-art {
+  width: 100%;
+  max-width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.All-card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.25rem;
+  color: #fff;
+}
+
+.All-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.audio-preview {
+  width: 100%;
+  max-width: 160px;
+  outline: none;
+  margin-top: auto;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #1DB954;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.All-card:hover .play-overlay {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .add-song {
-  background-color: #ff8364;
+  background-color: #1DB954;
   color: white;
-  padding: 0.9rem 1.5rem;
+  padding: 0.9rem 2rem;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
-  border-radius: 6px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-top: 3rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .add-song:hover {
-  background-color: #ff6842;
+  background-color: #1ed760;
+  transform: scale(1.05);
 }
 
-.create-new {
-  display: inline-block;
-  margin-top: 40px;
-  padding: 12px 24px;
-  border-radius: 8px;
-  background-color: #ed6044;
-  color: white;
-  font-weight: bold;
+.song-link {
   text-decoration: none;
-  transition: background 0.3s ease;
+  color: inherit;
+  display: block;
 }
 
-.create-new:hover {
-  background-color: #ff8364;
+.song-link:hover .All-card {
+  background-color: #2e2e2e;
+  transition: background-color 0.3s;
 }
-
 
 .navbar {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   padding: 1rem 2rem;
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: #000000;
+  border-bottom: 1px solid #333;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
-  box-sizing: border-box;
-  overflow: visible;
+  z-index: 100;
+}
+
+.navbar-left img {
+  height: 60px;
 }
 
 .navbar a {
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
-  margin-left: 1rem;
-  font-weight: bold;
+  margin-left: 1.2rem;
+  font-weight: 500;
 }
 
 .navbar a:hover {
-  color: #00bfff;
-}
-
-.navbar img {
-    width: 80px;
-    height: 80px;
+  color: #1DB954;
 }
 
 .username {
   margin-right: 1rem;
-  font-weight: normal;
-  color: #ccc;
+  font-weight: 400;
+  color: #aaa;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
 }
+
 

@@ -3,26 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>New Playlist</title>
+  <title>Create Playlist</title>
   <link rel="stylesheet" href="/styles/new-playlist.css" />
 </head>
 <body>
-    <%- include('../partials/navbar') %>
-  <h1>Create New Playlist</h1>
+  <%- include('../partials/navbar') %>
 
-  <form action="/playlists" method="POST">
-    <label for="name">Playlist Name:</label>
-    <input type="text" id="name" name="name" required />
+  <div class="container">
+    <h1>Create a New Playlist</h1>
 
-    <label for="songIds">Select Songs:</label>
-    <select multiple name="songIds" id="songIds">
-      <% allSongs.forEach((oneSong) => { %>
-        bayan
-        <option value="<%= oneSong._id %>"><%= oneSong.title %></option>
-      <% }) %>
-    </select>
+    <form action="/playlists" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Playlist Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter playlist name" />
+      </div>
 
-    <button type="submit">Create Playlist</button>
-  </form>
+      <div class="form-group">
+        <label for="coverImage">Cover Image</label>
+        <input type="file" id="coverImage" name="coverImage" accept="image/*" />
+        <img id="coverPreview" class="cover-preview" src="#" alt="Image Preview" style="display: none;" />
+    </div>
+
+      <div class="form-group">
+        <label for="songIds">Add Songs to Playlist</label>
+        <select multiple name="songIds" id="songIds">
+          <% allSongs.forEach((oneSong) => { %>
+            <option value="<%= oneSong._id %>"><%= oneSong.title %> — <%= oneSong.artist %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <button type="submit">Create Playlist</button>
+    </form>
+  </div>
 </body>
 </html>
