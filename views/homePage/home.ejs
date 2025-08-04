@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/main.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TuneNest</title>
+  <link rel="stylesheet" href="/styles/main.css" />
 </head>
 <body>
-    <%- include('../partials/navbar') %>
-    <div class="video-container">
-  <video autoplay muted loop playsinline class="background-video">
-    <source src="/videos/backgroundVideo.mp4" type="video/mp4">
-  </video>
+  <%- include('../partials/navbar') %>
 
-  <div class="overlay-content">
-    <h1>Welcome to TuneNest</h1>
-    <h2>Your music, your way.</h2>
-    <a href="/playlists" class="cta-button">Explore Playlists</a>
+  <div class="video-container">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="/videos/backgroundVideo.mp4" type="video/mp4" />
+
+
+    </video>
+
+    <div class="overlay-content">
+      <h1>Welcome to TuneNest</h1>
+      <h2>Your music, your way.</h2>
+      <a href="/playlists" class="cta-button">Explore Playlists</a>
+    </div>
   </div>
 </body>
 </html>
