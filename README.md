@@ -62,7 +62,7 @@ I created TuneNest to learn how to combine front-end creativity with back-end fu
 Here are some planned enhancements for future releases:
 
 -  Integrated audio preview/player for each song
-- 📤Drag-and-drop reordering of songs within playlists
+-  Drag-and-drop reordering of songs within playlists
 -  Public playlist sharing via links
 -  Dark/Light theme toggle
 - Improved media library and song uploader
