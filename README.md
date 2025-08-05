@@ -30,7 +30,7 @@ I created TuneNest to learn how to combine front-end creativity with back-end fu
 
 ---
 
-## 🙌 Attributions
+##  Attributions
 
 - **Background video** from [Canva](https://www.canva.com/design/DAGu_-fphpY/utQzbhmglYt0EFMQN9KR3Q/edit)
 - **Font** from [googleFonts](https://fonts.google.com/specimen/Limelight)
@@ -38,7 +38,7 @@ I created TuneNest to learn how to combine front-end creativity with back-end fu
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 **Frontend**
 - CSS
